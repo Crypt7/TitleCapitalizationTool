@@ -18,11 +18,22 @@ namespace TitleCapitalizationTool
             Console.Title = "English text capitalisation";
             Console.Write("Enter title to capitalize:");
             Console.ForegroundColor = ConsoleColor.Red;
-            gotTextLine = Console.ReadLine();
-            if (gotTextLine.Length == 0)
+            bool fixCurrentCursorPosition = true;
+            do
             {
-                StringCapitalization();
-            }
+                int fixedCursorLeft = Console.CursorLeft;
+                int fixedCursorTop = Console.CursorTop;
+                gotTextLine = Console.ReadLine();
+                if (String.IsNullOrEmpty(gotTextLine) || String.IsNullOrWhiteSpace(gotTextLine))
+                {
+                    Console.CursorLeft = fixedCursorLeft;
+                    Console.CursorTop = fixedCursorTop;
+                }
+                else
+                {
+                    fixCurrentCursorPosition = false;
+                }
+            } while (fixCurrentCursorPosition);
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write("Capitalised text:");
             Console.ForegroundColor = ConsoleColor.Green;
