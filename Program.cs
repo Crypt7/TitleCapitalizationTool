@@ -38,7 +38,7 @@ namespace TitleCapitalizationTool
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write("Capitalized title: ");
             Console.ForegroundColor = ConsoleColor.Green;
-            string tmpGotline = gotTextLine;
+            String tmpGotline = gotTextLine;
             tmpGotline = tmpGotline.Trim();
             tmpGotline = tmpGotline.ToLower();
             tmpGotline = SpaceNormalization(tmpGotline);
@@ -90,7 +90,6 @@ namespace TitleCapitalizationTool
                 {
                     sb.Append(' ' + str);
                 }
-
             }
             return sb.ToString().Trim();
         }
