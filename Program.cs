@@ -144,10 +144,6 @@ namespace TitleCapitalizationTool
             }
             return false;
         }
-        private static string UpperFirstLetter(string mysrt)
-        {
-            return mysrt;
-        }
     }
 
 }
