@@ -56,7 +56,7 @@ namespace TitleCapitalizationTool
             for (int i = 0; i <= arrayLen; i++)
             {
                 string str = ar[i];
-                if (CheckIfLowercase(str) == true && i != arrayLen)
+                if (CheckIfLowercase(str) && i != arrayLen)
                 {
                     sb.Append(str + ' ');
                 }
@@ -73,7 +73,7 @@ namespace TitleCapitalizationTool
         {
             StringBuilder sb = new StringBuilder(myString);
 
-            if (Char.IsLetter(sb[0]) == true)
+            if (Char.IsLetter(sb[0]))
             {
                 sb[0] = Char.ToUpper(sb[0]);
             }
@@ -105,7 +105,7 @@ namespace TitleCapitalizationTool
                 int cLen = str.Length;
                 for (int i = 0; i < cLen; i++)
                 {
-                    if (CheckIfSeparator(str[i]) == true)
+                    if (CheckIfSeparator(str[i]))
                     {
                         if (str[i] == '-')
                             sb.Append(" - ");
