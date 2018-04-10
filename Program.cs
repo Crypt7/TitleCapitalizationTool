@@ -73,7 +73,6 @@ namespace TitleCapitalizationTool
         private static string UpperFirstWordLetter(string myString)
         {
             StringBuilder sb = new StringBuilder(myString);
-
             if (Char.IsLetter(sb[0]))
             {
                 sb[0] = Char.ToUpper(sb[0]);
@@ -108,7 +107,9 @@ namespace TitleCapitalizationTool
                     if (CheckIfSeparator(str[i]))
                     {
                         if (str[i] == '-')
+                        {
                             sb.Append(" - ");
+                        }
                         else
                         {
                             if ((i + 1) != cLen && Char.IsLetter(str[i + 1]) == true)
