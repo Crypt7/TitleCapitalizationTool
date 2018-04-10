@@ -43,13 +43,13 @@ namespace TitleCapitalizationTool
             tmpGotline = tmpGotline.ToLower();
             tmpGotline = SpaceNormalization(tmpGotline);
             tmpGotline = SeparatorNormalization(tmpGotline);
-            tmpGotline = CaseNormalisation(tmpGotline);
+            tmpGotline = CaseNormalization(tmpGotline);
             Console.WriteLine(tmpGotline);
             Console.WriteLine();
             StringCapitalization();
         }
 
-        private static string CaseNormalisation(string myLine)
+        private static string CaseNormalization(string myLine)
         {
             string[] ar = myLine.Split(' ');
             int arrayLen = ar.Length - 1;
