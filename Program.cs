@@ -10,6 +10,7 @@ namespace TitleCapitalizationTool
         {
             StringCapitalization();
         }
+
         private static void StringCapitalization()
         {
             String gotTextLine = null;
@@ -82,7 +83,6 @@ namespace TitleCapitalizationTool
 
         private static string SpaceNormalization(string myLine)
         {
-
             string[] ar = myLine.Split(' ');
             StringBuilder sb = new StringBuilder(null);
             foreach (string str in ar)
