@@ -20,7 +20,9 @@ namespace TitleCapitalizationTool
             Console.ForegroundColor = ConsoleColor.Red;
             gotTextLine = Console.ReadLine();
             if (gotTextLine.Length == 0)
+            {
                 StringCapitalization();
+            }
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write("Capitalised text:");
             Console.ForegroundColor = ConsoleColor.Green;
@@ -52,9 +54,6 @@ namespace TitleCapitalizationTool
                 }
             }
             sb[0] = char.ToUpper(sb[0]);
-
-
-
             return sb.ToString().Trim();
         }
 
@@ -63,7 +62,9 @@ namespace TitleCapitalizationTool
             StringBuilder sb = new StringBuilder(myString);
 
             if (Char.IsLetter(sb[0]) == true)
+            {
                 sb[0] = Char.ToUpper(sb[0]);
+            }
             return sb.ToString();
         }
 
@@ -114,8 +115,6 @@ namespace TitleCapitalizationTool
                     {
                         sb.Append(str[i]);
                     }
-
-
                 }
                 sb.Append(' ');
             }
@@ -128,9 +127,10 @@ namespace TitleCapitalizationTool
             foreach (string str in lowerCaseElementsList)
             {
                 if (str == myStr)
+                {
                     return true;
+                }
             }
-
             return false;
         }
 
@@ -144,10 +144,8 @@ namespace TitleCapitalizationTool
             }
             return false;
         }
-
         private static string UpperFirstLetter(string mysrt)
         {
-
             return mysrt;
         }
     }
