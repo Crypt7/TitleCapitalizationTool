@@ -123,7 +123,7 @@ namespace TitleCapitalizationTool
 
         private static bool CheckIfLowercase(String myStr)
         {
-            String[] lowerCaseElementsList = { "a", "an", "the", "and", "but", "for", "nor", "so", "yet", "at", "by", "in", "of", "on", "or", "out", "to", "up" };
+            String[] lowerCaseElementsList = { "a", "an",  "and","at", "but", "by", "for", "in", "nor",  "of", "on", "or", "out", "so", "the", "to", "up", "yet" };
             foreach (string str in lowerCaseElementsList)
             {
                 if (str == myStr)
