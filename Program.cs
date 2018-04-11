@@ -6,6 +6,7 @@ namespace TitleCapitalizationTool
 {
     class Program
     {
+
         private static void Main()
         {
             StringCapitalization();
@@ -38,108 +39,108 @@ namespace TitleCapitalizationTool
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.Write("Capitalized title: ");
             Console.ForegroundColor = ConsoleColor.Green;
-            String tmpGotline = gotTextLine;
-            tmpGotline = tmpGotline.Trim();
-            tmpGotline = tmpGotline.ToLower();
-            tmpGotline = SpaceNormalization(tmpGotline);
-            tmpGotline = SeparatorNormalization(tmpGotline);
-            tmpGotline = CaseNormalization(tmpGotline);
-            Console.WriteLine(tmpGotline);
+            String gotTextLineCopy = gotTextLine;
+            gotTextLineCopy = gotTextLineCopy.Trim();
+            gotTextLineCopy = gotTextLineCopy.ToLower();
+            gotTextLineCopy = SpaceNormalization(gotTextLineCopy);
+            gotTextLineCopy = SeparatorNormalization(gotTextLineCopy);
+            gotTextLineCopy = CaseNormalization(gotTextLineCopy);
+            Console.WriteLine(gotTextLineCopy);
             Console.WriteLine();
             StringCapitalization();
         }
 
-        private static string CaseNormalization(string myLine)
+        private static string CaseNormalization(string processedString)
         {
-            string[] ar = myLine.Split(' ');
-            int arrayLen = ar.Length - 1;
-            StringBuilder sb = new StringBuilder(null);
-            for (int i = 0; i <= arrayLen; i++)
+            string[] wordsArray = processedString.Split(' ');
+            int arrayLendth = wordsArray.Length - 1;
+            StringBuilder constructedString = new StringBuilder(null);
+            for (int i = 0; i <= arrayLendth; i++)
             {
-                string str = ar[i];
-                if (CheckIfLowercase(str) && i != arrayLen)
+                string currentWord = wordsArray[i];
+                if (CheckIfLowercase(currentWord) && i != arrayLendth)
                 {
-                    sb.Append(str + ' ');
+                    constructedString.Append(currentWord + ' ');
                 }
                 else
                 {
-                    sb.Append(UpperFirstWordLetter(str) + ' ');
+                    constructedString.Append(UpperFirstWordLetter(currentWord) + ' ');
                 }
             }
-            sb[0] = char.ToUpper(sb[0]);
-            return sb.ToString().Trim();
+            constructedString[0] = char.ToUpper(constructedString[0]);
+            return constructedString.ToString().Trim();
         }
 
-        private static string UpperFirstWordLetter(string myString)
+        private static string UpperFirstWordLetter(string processedString)
         {
-            StringBuilder sb = new StringBuilder(myString);
-            if (Char.IsLetter(sb[0]))
+            StringBuilder constructedString = new StringBuilder(processedString);
+            if (Char.IsLetter(constructedString[0]))
             {
-                sb[0] = Char.ToUpper(sb[0]);
+                constructedString[0] = Char.ToUpper(constructedString[0]);
             }
-            return sb.ToString();
+            return constructedString.ToString();
         }
 
-        private static string SpaceNormalization(string myLine)
+        private static string SpaceNormalization(string processedString)
         {
-            string[] ar = myLine.Split(' ');
-            StringBuilder sb = new StringBuilder(null);
-            foreach (string str in ar)
+            string[] wordsArray = processedString.Split(' ');
+            StringBuilder constructedString = new StringBuilder(null);
+            foreach (string currentWord in wordsArray)
             {
-                if (str.Length != 0)
+                if (currentWord.Length != 0)
                 {
-                    sb.Append(' ' + str);
+                    constructedString.Append(' ' + currentWord);
                 }
             }
-            return sb.ToString().Trim();
+            return constructedString.ToString().Trim();
         }
 
-        private static string SeparatorNormalization(string myLine)
+        private static string SeparatorNormalization(string processedString)
         {
-            string[] ar = myLine.Split(' ');
-            StringBuilder sb = new StringBuilder(null);
-            foreach (string str in ar)
+            string[] wordsArray = processedString.Split(' ');
+            StringBuilder constructedString = new StringBuilder(null);
+            foreach (string currentWord in wordsArray)
             {
-                int cLen = str.Length;
-                for (int i = 0; i < cLen; i++)
+                int currentWordLendth = currentWord.Length;
+                for (int i = 0; i < currentWordLendth; i++)
                 {
-                    if (CheckIfSeparator(str[i]))
+                    if (CheckIfSeparator(currentWord[i]))
                     {
-                        if (str[i] == '-')
+                        if (currentWord[i] == '-')
                         {
-                            sb.Append(" - ");
+                            constructedString.Append(" - ");
                         }
                         else
                         {
-                            if ((i + 1) != cLen && Char.IsLetter(str[i + 1]) == true)
+                            if ((i + 1) != currentWordLendth && Char.IsLetter(currentWord[i + 1]))
                             {
-                                sb.Append(str[i]);
-                                sb.Append(' ');
-                                Console.WriteLine(str[i]);
+                                constructedString.Append(currentWord[i]);
+                                constructedString.Append(' ');
+                                Console.WriteLine(currentWord[i]);
                             }
                             else
                             {
-                                sb.Append(str[i]);
+                                constructedString.Append(currentWord[i]);
                             }
                         }
                     }
                     else
                     {
-                        sb.Append(str[i]);
+                        constructedString.Append(currentWord[i]);
                     }
                 }
-                sb.Append(' ');
+                constructedString.Append(' ');
             }
-            return sb.ToString().Trim();
+            return constructedString.ToString().Trim();
         }
 
-        private static bool CheckIfLowercase(String myStr)
+        private static bool CheckIfLowercase(String processedString)
         {
             String[] lowerCaseElementsList = { "a", "an",  "and","at", "but", "by", "for", "in", "nor",  "of", "on", "or", "out", "so", "the", "to", "up", "yet" };
             bool isLowerCase = false;
-            foreach (string str in lowerCaseElementsList)
+            foreach (string currentlowerCaseElement in lowerCaseElementsList)
             {
-                if (str == myStr)
+                if (currentlowerCaseElement == processedString)
                 {
                     isLowerCase = true;
                     break;
@@ -148,13 +149,13 @@ namespace TitleCapitalizationTool
             return isLowerCase;
         }
 
-        private static bool CheckIfSeparator(char myChar)
+        private static bool CheckIfSeparator(char symbolToCheck)
         {
             char[] SeparatorsList = { '.', ',', ';', ':', '!', '?', '-' };
             bool isSeparator = false;
-            foreach (char cChar in SeparatorsList)
+            foreach (char currentSeparator in SeparatorsList)
             {
-                if (cChar == myChar)
+                if (currentSeparator == symbolToCheck)
                 {
                     isSeparator = true;
                     break;
