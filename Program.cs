@@ -13,7 +13,7 @@ namespace TitleCapitalizationTool
 
         private static void StringCapitalization()
         {
-            String gotTextLine = null;
+            string gotTextLine = null;
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.Title = "TitleCapitalizationTool";
@@ -25,7 +25,7 @@ namespace TitleCapitalizationTool
                 int fixedCursorLeft = Console.CursorLeft;
                 int fixedCursorTop = Console.CursorTop;
                 gotTextLine = Console.ReadLine();
-                if (String.IsNullOrEmpty(gotTextLine) || String.IsNullOrWhiteSpace(gotTextLine))
+                if (string.IsNullOrEmpty(gotTextLine) || string.IsNullOrWhiteSpace(gotTextLine))
                 {
                     Console.CursorLeft = fixedCursorLeft;
                     Console.CursorTop = fixedCursorTop;
@@ -38,7 +38,7 @@ namespace TitleCapitalizationTool
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.Write("Capitalized title: ");
             Console.ForegroundColor = ConsoleColor.Green;
-            String gotTextLineCopy = gotTextLine;
+            string gotTextLineCopy = gotTextLine;
             gotTextLineCopy = gotTextLineCopy.Trim();
             gotTextLineCopy = gotTextLineCopy.ToLower();
             gotTextLineCopy = SpaceNormalization(gotTextLineCopy);
@@ -73,9 +73,9 @@ namespace TitleCapitalizationTool
         private static string UpperFirstWordLetter(string processedString)
         {
             StringBuilder constructedString = new StringBuilder(processedString);
-            if (Char.IsLetter(constructedString[0]))
+            if (char.IsLetter(constructedString[0]))
             {
-                constructedString[0] = Char.ToUpper(constructedString[0]);
+                constructedString[0] = char.ToUpper(constructedString[0]);
             }
             return constructedString.ToString();
         }
@@ -111,7 +111,7 @@ namespace TitleCapitalizationTool
                         }
                         else
                         {
-                            if ((i + 1) != currentWordLendth && Char.IsLetter(currentWord[i + 1]))
+                            if ((i + 1) != currentWordLendth && char.IsLetter(currentWord[i + 1]))
                             {
                                 constructedString.Append(currentWord[i]);
                                 constructedString.Append(' ');
@@ -133,9 +133,9 @@ namespace TitleCapitalizationTool
             return constructedString.ToString().Trim();
         }
 
-        private static bool CheckIfLowercase(String processedString)
+        private static bool CheckIfLowercase(string processedString)
         {
-            String[] lowerCaseElementsList = { "a", "an",  "and","at", "but", "by", "for", "in", "nor",  "of", "on", "or", "out", "so", "the", "to", "up", "yet" };
+            string[] lowerCaseElementsList = { "a", "an",  "and","at", "but", "by", "for", "in", "nor",  "of", "on", "or", "out", "so", "the", "to", "up", "yet" };
             bool isLowerCase = false;
             foreach (string currentlowerCaseElement in lowerCaseElementsList)
             {
