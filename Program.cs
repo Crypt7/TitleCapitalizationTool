@@ -54,7 +54,7 @@ namespace TitleCapitalizationTool
         {
             string[] wordsArray = processedString.Split(' ');
             int arrayLendth = wordsArray.Length - 1;
-            StringBuilder constructedString = new StringBuilder(null);
+            StringBuilder constructedString = new StringBuilder();
             for (int i = 0; i <= arrayLendth; i++)
             {
                 string currentWord = wordsArray[i];
@@ -84,7 +84,7 @@ namespace TitleCapitalizationTool
         private static string SpaceNormalization(string processedString)
         {
             string[] wordsArray = processedString.Split(' ');
-            StringBuilder constructedString = new StringBuilder(null);
+            StringBuilder constructedString = new StringBuilder();
             foreach (string currentWord in wordsArray)
             {
                 if (currentWord.Length != 0)
@@ -98,7 +98,7 @@ namespace TitleCapitalizationTool
         private static string SeparatorNormalization(string processedString)
         {
             string[] wordsArray = processedString.Split(' ');
-            StringBuilder constructedString = new StringBuilder(null);
+            StringBuilder constructedString = new StringBuilder();
             foreach (string currentWord in wordsArray)
             {
                 int currentWordLendth = currentWord.Length;
