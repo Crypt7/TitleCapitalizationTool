@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Text;
-
+//Убрал переменне темп и сокращения имен
 namespace TitleCapitalizationTool
 
 {
