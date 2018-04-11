@@ -15,9 +15,9 @@ namespace TitleCapitalizationTool
         {
             String gotTextLine = null;
             Console.BackgroundColor = ConsoleColor.Black;
-            Console.ForegroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Gray;
             Console.Title = "TitleCapitalizationTool";
-            Console.Write("Enter title to capitalize:");
+            Console.Write("Enter title to capitalize: ");
             Console.ForegroundColor = ConsoleColor.Red;
             bool fixCurrentCursorPosition = true;
             do
@@ -35,7 +35,7 @@ namespace TitleCapitalizationTool
                     fixCurrentCursorPosition = false;
                 }
             } while (fixCurrentCursorPosition);
-            Console.ForegroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Gray;
             Console.Write("Capitalized title: ");
             Console.ForegroundColor = ConsoleColor.Green;
             String tmpGotline = gotTextLine;
