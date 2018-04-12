@@ -80,7 +80,6 @@ namespace TitleCapitalizationTool
 
         private static string UpperFirstWordLetter(string processedString)
         {
-
             StringBuilder constructedString = new StringBuilder(processedString);
             if (char.IsLetter(constructedString[0]))
             {
@@ -105,7 +104,6 @@ namespace TitleCapitalizationTool
 
         private static string SeparatorNormalization(string processedString)
         {
-
             string[] wordsArray = processedString.Split(' ');
             StringBuilder constructedString = new StringBuilder();
             foreach (string currentWord in wordsArray)
@@ -121,7 +119,6 @@ namespace TitleCapitalizationTool
                     {
                         constructedString=AddSeparator(constructedString, currentWord[i]);
                     }
-   
                 }
                 constructedString.Append(' ');
             }
