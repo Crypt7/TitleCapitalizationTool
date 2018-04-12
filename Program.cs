@@ -60,8 +60,6 @@ namespace TitleCapitalizationTool
             for (int i = 0; i <= arrayLendth; i++)
             {
                 string currentWord = wordsArray[i];
-
-
                 if (CheckIfLowercase(currentWord) && i != arrayLendth)
                 {
                     constructedString.Append(currentWord + ' ');
