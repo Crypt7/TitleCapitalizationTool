@@ -2,13 +2,22 @@
 using System.Text;
 
 namespace TitleCapitalizationTool
-
 {
     internal class Program
     {
-        private static void Main()
+        private static void Main(string[] args)
         {
-            StringCapitalization();
+            if (args.Length == 0)
+            {
+                StringCapitalization();
+            }
+            else
+            {
+                foreach (string parametr in args)
+                {
+                    StringCapitalization(parametr);
+                }
+            }
         }
 
         private static void StringCapitalization()
@@ -19,37 +28,45 @@ namespace TitleCapitalizationTool
             Console.Title = "TitleCapitalizationTool";
             Console.Write("Enter title to capitalize: ");
             Console.ForegroundColor = ConsoleColor.Red;
-            bool fixCurrentCursorPosition = true;
-            do
-            {
-                int fixedCursorLeft = Console.CursorLeft;
-                int fixedCursorTop = Console.CursorTop;
-                gotTextLine = Console.ReadLine();
-                if (string.IsNullOrEmpty(gotTextLine))
-                {
-                    Console.CursorLeft = fixedCursorLeft;
-                    Console.CursorTop = fixedCursorTop;
-                }
-                else
-                {
-                    fixCurrentCursorPosition = false;
-                }
-            } while (fixCurrentCursorPosition);
+            gotTextLine = GetTextline();
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.Write("Capitalized title: ");
             Console.ForegroundColor = ConsoleColor.Green;
-            string gotTextLineCopy = gotTextLine;
-            if (!string.IsNullOrWhiteSpace(gotTextLineCopy))
-            {
-            gotTextLineCopy = gotTextLineCopy.Trim();
-            gotTextLineCopy = gotTextLineCopy.ToLower();
-            gotTextLineCopy = SpaceNormalization(gotTextLineCopy);
-            gotTextLineCopy = SeparatorNormalization(gotTextLineCopy);
-            gotTextLineCopy = CaseNormalization(gotTextLineCopy);
-            }
+            string gotTextLineCopy = BuildString(gotTextLine);
             Console.WriteLine(gotTextLineCopy);
             Console.WriteLine();
             StringCapitalization();
+        }
+
+        private static void StringCapitalization(string gotTextLine)
+        {
+            //string gotTextLine = null;
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.Title = "TitleCapitalizationTool";
+            Console.Write("Original title: ");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(gotTextLine);
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.Write("Capitalized title: ");
+            Console.ForegroundColor = ConsoleColor.Green;
+            string gotTextLineCopy = BuildString(gotTextLine);
+            Console.WriteLine(gotTextLineCopy);
+            Console.WriteLine();
+         }
+
+        private static string BuildString(string gotTextLine)
+        {
+            string gotTextLineCopy = gotTextLine;
+            if (!string.IsNullOrWhiteSpace(gotTextLineCopy))
+            {
+                gotTextLineCopy = gotTextLineCopy.Trim();
+                gotTextLineCopy = gotTextLineCopy.ToLower();
+                gotTextLineCopy = SpaceNormalization(gotTextLineCopy);
+                gotTextLineCopy = SeparatorNormalization(gotTextLineCopy);
+                gotTextLineCopy = CaseNormalization(gotTextLineCopy);
+            }
+            return gotTextLineCopy;
         }
 
         private static string CaseNormalization(string processedString)
@@ -167,6 +184,27 @@ namespace TitleCapitalizationTool
                 }
             }
             return isSeparator;
+        }
+        private static string GetTextline()
+        {
+            string gotTextLine = null;
+            bool fixCurrentCursorPosition = true;
+            do
+            {
+                int fixedCursorLeft = Console.CursorLeft;
+                int fixedCursorTop = Console.CursorTop;
+                gotTextLine = Console.ReadLine();
+                if (string.IsNullOrEmpty(gotTextLine))
+                {
+                    Console.CursorLeft = fixedCursorLeft;
+                    Console.CursorTop = fixedCursorTop;
+                }
+                else
+                {
+                    fixCurrentCursorPosition = false;
+                }
+            } while (fixCurrentCursorPosition);
+            return gotTextLine;
         }
     }
 }
