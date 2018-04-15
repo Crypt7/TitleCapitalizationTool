@@ -143,17 +143,17 @@ namespace TitleCapitalizationTool
         private static StringBuilder AddSeparator(StringBuilder constructedString, char currentSeparator)
         {
             int constructedStringLendth = constructedString.Length;
-            StringBuilder ModifiedString = new StringBuilder(constructedString.ToString().TrimEnd());
+            StringBuilder modifiedString = new StringBuilder(constructedString.ToString().TrimEnd());
             if (currentSeparator != '-')
             {
-                ModifiedString.Append(currentSeparator);
-                ModifiedString.Append(' ');
+                modifiedString.Append(currentSeparator);
+                modifiedString.Append(' ');
             }
             else
             {
-                ModifiedString.Append(" - ");
+                modifiedString.Append(" - ");
             }
-            return ModifiedString;
+            return modifiedString;
         }
 
         private static bool CheckIfLowercase(string processedString)
@@ -173,9 +173,9 @@ namespace TitleCapitalizationTool
 
         private static bool CheckIfSeparator(char symbolToCheck)
         {
-            char[] SeparatorsList = {'.',',',';',':','!','?','-'};
+            char[] separatorsList = {'.',',',';',':','!','?','-'};
             bool isSeparator = false;
-            foreach (char currentSeparator in SeparatorsList)
+            foreach (char currentSeparator in separatorsList)
             {
                 if (currentSeparator == symbolToCheck)
                 {
