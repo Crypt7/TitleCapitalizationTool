@@ -13,9 +13,9 @@ namespace TitleCapitalizationTool
             }
             else
             {
-                foreach (string parametr in args)
+                foreach (string gotTextLine in args)
                 {
-                    StringCapitalization(parametr);
+                    StringCapitalization(gotTextLine);
                 }
             }
         }
