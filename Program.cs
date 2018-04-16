@@ -158,7 +158,7 @@ namespace TitleCapitalizationTool
 
         private static bool CheckIfLowercase(string processedString)
         {
-            string[] lowerCaseElementsList = {"a","an","and","at","but","by","for","in","nor","of","on","or","out","so","the","to","up","yet"};
+            string[] lowerCaseElementsList = {"a", "an", "and", "at", "but", "by", "for", "in", "nor", "of", "on", "or", "out", "so", "the", "to", "up", "yet"};
             bool isLowerCase = false;
             foreach (string currentlowerCaseElement in lowerCaseElementsList)
             {
@@ -173,7 +173,7 @@ namespace TitleCapitalizationTool
 
         private static bool CheckIfSeparator(char symbolToCheck)
         {
-            char[] separatorsList = {'.',',',';',':','!','?','-'};
+            char[] separatorsList = {'.', ',', ';', ':', '!', '?', '-'};
             bool isSeparator = false;
             foreach (char currentSeparator in separatorsList)
             {
