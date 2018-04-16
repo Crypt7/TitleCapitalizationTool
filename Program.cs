@@ -5,15 +5,15 @@ namespace TitleCapitalizationTool
 {
     internal class Program
     {
-        private static void Main(string[] args)
+        private static void Main(string[] listOfParameters)
         {
-            if (args.Length == 0)
+            if (listOfParameters.Length == 0)
             {
                 StringCapitalization();
             }
             else
             {
-                foreach (string gotTextLine in args)
+                foreach (string gotTextLine in listOfParameters)
                 {
                     StringCapitalization(gotTextLine);
                 }
@@ -40,7 +40,6 @@ namespace TitleCapitalizationTool
 
         private static void StringCapitalization(string gotTextLine)
         {
-            //string gotTextLine = null;
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.Title = "TitleCapitalizationTool";
